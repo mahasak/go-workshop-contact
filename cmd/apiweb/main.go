@@ -6,10 +6,15 @@ import (
 )
 
 func main() {
+	port := os.Getenv("PORT")
+
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/contact/save", saveContact)
 	mux.HandleFunc("/api/contact/get", getContact)
-	http.ListenAndServe(":9000", mux)
+	http.ListenAndServe(":"+port, mux)
 
 }
 
