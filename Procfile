@@ -1,1 +1,1 @@
-web: apiweb
+web: go-workshop-contact
